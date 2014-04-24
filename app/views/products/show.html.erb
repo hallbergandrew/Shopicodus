@@ -1,0 +1,13 @@
+<%= @product.name %>
+<%= @product.description %>
+<%= image_tag @product.photo.url(:medium, false) %>
+<% if current_user %>
+      Logged in as <%= current_user.email %>.
+      <%= link_to "Edit Product", edit_product_path(@product) %>
+      <%= link_to "Delete Product", product_path(@product),
+                      data: { confirm: 'Are you sure?',
+                              method: "delete"} %>
+
+<% end %>
+
+<%= link_to "back", products_path %>

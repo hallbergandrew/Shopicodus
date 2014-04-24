@@ -1,0 +1,14 @@
+<h1>Welcome to our store</h1>
+<ul>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, product_path(product) %>:  $<%= product.price %>:
+    <%= image_tag product.photo.url(:thumb, false) %>
+    </li>
+  <% end %>
+
+  <a href= "https://s3-us-west-2.amazonaws.com/shopepicodus/products/photos/000/000/020/original/download.jpeg" >Pic</a>
+
+  <% if current_user %>
+      <%= link_to "Create New Product", new_product_path %>
+<% end %>
+</ul>

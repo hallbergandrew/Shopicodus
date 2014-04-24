@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: shop_app_development
+
+test:
+  adapter: postgresql
+  database: shop_app_test
+
+production:
+  adapter: postgresql
+  database: shop_app_test

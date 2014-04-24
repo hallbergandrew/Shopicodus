@@ -1,0 +1,26 @@
+<%= form_for @product, :html => { :multipart => true } do |f| %>
+  <% if @product.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :name, :placeholder => 'name' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :price, :placeholder => 'price' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :description, :placeholder => 'description' %>
+  </div>
+  <div class="form-group">
+    <%= f.file_field :photo %>
+  </div>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
+<% end  %>

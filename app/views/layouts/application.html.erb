@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class = "container">
+
+ <%= link_to "Home", root_url %>
+    <% if current_user %>
+      Logged in as <%= current_user.email %>.
+      <%= link_to "Log Out", logout_path %>
+
+    <% else %>
+      <%= link_to "Admin?", login_path %>
+    <% end %>
+
+
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+<%= yield %>
+</div>
+
+</body>
+</html>
